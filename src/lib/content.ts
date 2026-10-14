@@ -10,6 +10,8 @@ import interlock from "@/assets/projects/interlock-works.jpg";
 import concrete from "@/assets/projects/badr-concrete-plant.jpg";
 
 export const COMPANY_EMAIL = "info@nejmetsinai.com";
+export const COMPANY_EMAIL = "info@nejmetsinai.com";
+export const COMPANY_PHONES = ["+201007342800", "+201009370663"];
 
 export const nav: { to: string; label: L }[] = [
   { to: "/", label: { ar: "الرئيسية", en: "Home" } },
