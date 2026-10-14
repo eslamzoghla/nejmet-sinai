@@ -50,18 +50,19 @@ function Contact() {
               <div>
                 <div className="font-bold text-navy">{t({ ar: "البريد الإلكتروني", en: "Email" })}</div>
                 <a href={`mailto:${COMPANY_EMAIL}`} dir="ltr" className="mt-1 block text-muted-foreground hover:text-gold transition-colors">{COMPANY_EMAIL}</a>
-                <div className="flex flex-wrap items-center gap-3">
-                {COMPANY_PHONES.map((phone) => (
-                  <a
-                    key={phone}
-                    href={`tel:${phone}`}
-                    dir="ltr"
-                    className="hover:underline"
-                  >
-                    {phone}
-                  </a>
-                ))}
-              </div>
+                <div className="mt-4">
+  <div className="font-bold text-navy">{t({ ar: "أرقام الهواتف", en: "Phone Numbers" })}</div>
+  {COMPANY_PHONES.map((phone) => (
+    <a 
+      key={phone} 
+      href={`tel:${phone}`} 
+      dir="ltr" 
+      className="mt-1 block text-muted-foreground hover:text-gold transition-colors"
+    >
+      {phone}
+    </a>
+  ))}
+</div>
               </div>
             </div>
             <div className="flex items-start gap-4">
