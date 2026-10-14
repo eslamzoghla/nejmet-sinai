@@ -42,7 +42,7 @@ export const ui = {
 
 export const stats: { value: L; label: L }[] = [
   { value: { ar: "+10", en: "10+" }, label: { ar: "سنوات من الخبرة", en: "Years of experience" } },
-  { value: { ar: "+10 مليار", en: "EGP 10B+" }, label: { ar: "جنيه قيمة المشروعات المنفذة", en: "Value of executed projects" } },
+  { value: { ar: "مليار", en: "EGP 1B+" }, label: { ar: "جنيه قيمة المشروعات المنفذة", en: "Value of executed projects" } },
   { value: { ar: "الأولى", en: "First" }, label: { ar: "فئة التصنيف", en: "Class classification" } },
   { value: { ar: "3", en: "3" }, label: { ar: "3 دول: مصر، السعودية، الإمارات", en: "3 Countries: Egypt, KSA & UAE" } },
 ];
