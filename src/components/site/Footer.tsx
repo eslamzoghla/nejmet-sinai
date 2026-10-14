@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Mail, MapPin } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
-import { COMPANY_EMAIL, nav, ui } from "@/lib/content";
+import { COMPANY_EMAIL, COMPANY_PHONES, nav, ui } from "@/lib/content";
 import logo from "@/assets/Logo.jpeg";
 
 export function Footer() {
@@ -29,6 +29,14 @@ export function Footer() {
               <Mail className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
               <a href={`mailto:${COMPANY_EMAIL}`} dir="ltr" className="transition-colors duration-300 hover:text-gold">{COMPANY_EMAIL}</a>
             </li>
+            {COMPANY_PHONES.map((phone) => (
+  <li key={phone} className="flex items-start gap-3">
+    <Phone className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
+    <a href={`tel:${phone}`} dir="ltr" className="transition-colors duration-300 hover:text-gold">
+      {phone}
+    </a>
+  </li>
+))}
             <li className="flex items-start gap-3">
               <MapPin className="mt-1 h-4 w-4 shrink-0 text-gold" />
               <div className="space-y-2.5 text-xs leading-relaxed">
