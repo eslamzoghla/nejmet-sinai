@@ -10,7 +10,7 @@ export function Footer() {
     <footer className="bg-navy text-on-dark-muted">
       <div className="container-x grid gap-12 py-16 md:grid-cols-[1fr_1fr_1fr]">
         <div>
-          <img src={logo} alt={t(ui.companyName)} className="h-56 w-auto rounded-sm" loading="lazy" width={458} height={719} />
+          <img src={logo} alt={t(ui.companyName)} className="h-56 w-auto rounded-sm" loading="lazy" width={1434} height={1920} />
         </div>
         <div>
           <h3 className="mb-5 font-bold text-on-dark">{t({ ar: "روابط", en: "Links" })}</h3>
