@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState, type FormEvent } from "react";
 import { Mail, MapPin } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
-import { COMPANY_EMAIL } from "@/lib/content";
+import { COMPANY_EMAIL, COMPANY_PHONES } from "@/lib/content";
 import { PageHero } from "@/components/site/blocks";
 import { seo } from "@/lib/seo";
 
@@ -50,6 +50,18 @@ function Contact() {
               <div>
                 <div className="font-bold text-navy">{t({ ar: "البريد الإلكتروني", en: "Email" })}</div>
                 <a href={`mailto:${COMPANY_EMAIL}`} dir="ltr" className="mt-1 block text-muted-foreground hover:text-gold transition-colors">{COMPANY_EMAIL}</a>
+                <div className="flex flex-wrap items-center gap-3">
+                {COMPANY_PHONES.map((phone) => (
+                  <a
+                    key={phone}
+                    href={`tel:${phone}`}
+                    dir="ltr"
+                    className="hover:underline"
+                  >
+                    {phone}
+                  </a>
+                ))}
+              </div>
               </div>
             </div>
             <div className="flex items-start gap-4">
