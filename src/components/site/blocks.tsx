@@ -47,16 +47,32 @@ export function ProjectCard({ p }: { p: Project }) {
     <Link
       to="/projects/$slug"
       params={{ slug: p.slug }}
-      className="group block overflow-hidden border border-border bg-card shadow-card transition-transform hover:-translate-y-1"
+      className="group relative block overflow-hidden border border-border bg-card shadow-card card-hover-luxury rounded-sm"
     >
-      <div className="aspect-[4/3] overflow-hidden bg-muted">
-        <img src={p.image} alt={t(p.title)} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+      <div className="relative aspect-[4/3] overflow-hidden bg-muted">
+        <img
+          src={p.image}
+          alt={t(p.title)}
+          loading="lazy"
+          className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-navy/15 to-transparent opacity-50 transition-opacity duration-500 group-hover:opacity-75" />
+        <div className="absolute top-3.5 start-3.5 glass-navy px-3 py-1 text-xs font-bold uppercase tracking-wider text-gold shadow-sm">
+          {t(serviceTitle(p.service))}
+        </div>
       </div>
-      <div className="p-6">
-        <div className="text-xs font-bold uppercase tracking-wider text-gold">{t(serviceTitle(p.service))}</div>
-        <h3 className="mt-2 text-lg font-bold text-navy">{t(p.title)}</h3>
-        <div className="mt-3 flex items-center gap-2 text-sm text-muted-foreground">
-          <MapPin className="h-4 w-4" /> {t(p.location)} · {t(ui[p.country])}
+      <div className="p-6 transition-colors duration-300">
+        <h3 className="text-lg font-bold text-navy transition-colors duration-300 group-hover:text-gold line-clamp-1">
+          {t(p.title)}
+        </h3>
+        <div className="mt-3 flex items-center justify-between text-sm text-muted-foreground">
+          <div className="flex items-center gap-1.5">
+            <MapPin className="h-4 w-4 shrink-0 text-gold transition-transform duration-300 group-hover:scale-110" />
+            <span>{t(p.location)} · {t(ui[p.country])}</span>
+          </div>
+          <span className="inline-flex items-center gap-1 font-semibold text-xs text-gold opacity-0 transition-all duration-300 group-hover:opacity-100">
+            {t(ui.details)} <Arrow className="h-3 w-3" />
+          </span>
         </div>
       </div>
     </Link>
@@ -66,15 +82,18 @@ export function ProjectCard({ p }: { p: Project }) {
 export function CtaBand() {
   const { t } = useI18n();
   return (
-    <section className="bg-navy-2">
-      <div className="container-x flex flex-col items-start justify-between gap-8 py-20 md:flex-row md:items-center">
+    <section className="relative isolate overflow-hidden bg-navy-2 py-20 border-t border-navy-3">
+      <div className="absolute -top-24 -end-24 h-72 w-72 rounded-full bg-gold/10 blur-3xl pointer-events-none" />
+      <div className="absolute -bottom-24 -start-24 h-72 w-72 rounded-full bg-gold/5 blur-3xl pointer-events-none" />
+      <div className="container-x relative z-10 flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
         <div>
-          <h2 className="text-3xl font-extrabold text-on-dark md:text-4xl">{t({ ar: "لنتعاون في تنفيذ مشاريع المستقبل", en: "Let's Build What's Next" })}</h2>
+          <span className="eyebrow">{t({ ar: "شراكات النجاح", en: "Success Partnerships" })}</span>
+          <h2 className="mt-3 text-3xl font-extrabold text-on-dark md:text-4xl">{t({ ar: "لنتعاون في تنفيذ مشاريع المستقبل", en: "Let's Build What's Next" })}</h2>
           <p className="mt-4 max-w-xl text-on-dark-muted">
             {t({ ar: "نرحب بالشراكات مع الشركات والمؤسسات المحلية والدولية لتنفيذ المشروعات الكبرى داخل مصر وخارجها.", en: "We welcome partnerships with local and international companies to deliver major projects in Egypt and beyond." })}
           </p>
         </div>
-        <Link to="/contact" className="inline-flex h-12 items-center gap-3 bg-gold px-7 font-bold text-navy transition-colors hover:bg-gold-light">
+        <Link to="/contact" className="btn-shine inline-flex h-12 items-center gap-3 bg-gold px-8 font-bold text-navy shadow-lg transition-all duration-300 hover:bg-gold-light hover:shadow-[0_0_25px_rgba(216,167,70,0.45)] hover:-translate-y-0.5">
           {t(ui.consult)} <Arrow className="h-4 w-4" />
         </Link>
       </div>

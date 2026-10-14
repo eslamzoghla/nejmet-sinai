@@ -30,9 +30,15 @@ function Equipment() {
       <section className="py-24">
         <div className="container-x grid gap-8 md:grid-cols-2">
           {cats.map((c, i) => (
-            <div key={i} className="group overflow-hidden border border-border bg-card shadow-card">
-              <div className="aspect-[16/9] overflow-hidden"><img src={c.img} alt={t(c.h)} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" /></div>
-              <div className="p-7"><h3 className="text-xl font-bold text-navy">{t(c.h)}</h3><p className="mt-2 text-muted-foreground">{t(c.p)}</p></div>
+            <div key={i} className="card-hover-luxury group overflow-hidden border border-border bg-card shadow-card rounded-sm">
+              <div className="relative aspect-[16/9] overflow-hidden bg-muted">
+                <img src={c.img} alt={t(c.h)} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110" />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy/60 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+              </div>
+              <div className="p-7">
+                <h3 className="text-xl font-bold text-navy transition-colors duration-300 group-hover:text-gold">{t(c.h)}</h3>
+                <p className="mt-2 text-muted-foreground">{t(c.p)}</p>
+              </div>
             </div>
           ))}
         </div>
@@ -41,7 +47,11 @@ function Equipment() {
         <div className="container-x">
           <SectionHead light eyebrow={{ ar: "فريق العمل", en: "Our people" }} title={{ ar: "فريق متكامل لإدارة وتنفيذ المشروعات", en: "Multidisciplinary teams for every project" }} />
           <div className="grid grid-cols-2 gap-px bg-navy-3 md:grid-cols-3">
-            {team.map((x, i) => <div key={i} className="bg-navy p-8 text-lg font-bold text-on-dark">{t(x)}</div>)}
+            {team.map((x, i) => (
+              <div key={i} className="group bg-navy p-8 text-lg font-bold text-on-dark transition-all duration-300 hover:bg-navy-2 hover:text-gold cursor-default border border-transparent hover:border-gold/30">
+                {t(x)}
+              </div>
+            ))}
           </div>
         </div>
       </section>

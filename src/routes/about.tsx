@@ -27,13 +27,13 @@ function About() {
             <p>{t({ ar: "شركة نجمة سيناء للمقاولات العامة شركة متخصصة في مجال المقاولات والإنشاءات، ومصنفة تصنيفًا أول، وتمتلك خبرة تمتد لأكثر من عشر سنوات في تنفيذ وإدارة المشاريع الإنشائية ومشروعات البنية التحتية.", en: "Najmat Sinai General Contracting is a first-class classified construction company with over ten years of experience executing and managing construction and infrastructure projects." })}</p>
             <p>{t({ ar: "شاركت الشركة في تنفيذ عدد من المشاريع الكبرى داخل جمهورية مصر العربية، بما في ذلك البنية التحتية والطرق القومية والإسكان، ومن بينها مشروعات قناة السويس الجديدة وشبكة الطرق القومية والإسكان الاجتماعي.", en: "The company has taken part in major projects across Egypt in infrastructure, national roads and housing — including the New Suez Canal, the national road network and social housing." })}</p>
             <p>{t({ ar: "كما تمتلك الشركة خبرات في تنفيذ وإدارة المشاريع في المملكة العربية السعودية بما يتوافق مع مستهدفات رؤية المملكة 2030، ونفذت مشروعات بإجمالي قيم تتجاوز 10 مليارات جنيه مصري خلال السنوات العشر الماضية.", en: "It also has project experience in the Kingdom of Saudi Arabia, aligned with Vision 2030, and has delivered projects worth over EGP 10 billion over the past decade." })}</p>
-            <p>{t({ ar: "يقع المقر الرئيسي في جمهورية مصر العربية، وللشركة فروع ومكاتب في القاهرة والمملكة العربية السعودية.", en: "Headquartered in Egypt, the company has branches and offices in Cairo and Saudi Arabia." })}</p>
+            <p>{t({ ar: "يقع المقر الرئيسي للشركة في جنوب سيناء بجمهورية مصر العربية، كما تمتلك الشركة شبكة فروع ومكاتب إقليمية تضم: فرع القاهرة في مصر، مكتب دبي في دولة الإمارات العربية المتحدة، بالإضافة إلى فروع ومشاريع الشركة في المملكة العربية السعودية.", en: "The company is headquartered in South Sinai, Egypt, supported by regional offices: Cairo in Egypt, Dubai in the United Arab Emirates, alongside active operations and branches in the Kingdom of Saudi Arabia." })}</p>
           </div>
           <div className="grid grid-cols-2 content-start gap-px bg-border">
             {stats.map((s, i) => (
-              <div key={i} className="bg-offwhite p-8">
-                <div className="text-3xl font-extrabold text-navy">{t(s.value)}</div>
-                <div className="mt-2 text-sm text-muted-foreground">{t(s.label)}</div>
+              <div key={i} className="group bg-offwhite p-8 transition-all duration-300 hover:bg-card hover:shadow-md cursor-default">
+                <div className="text-3xl font-extrabold text-navy transition-transform duration-300 group-hover:scale-105 group-hover:text-gold">{t(s.value)}</div>
+                <div className="mt-2 text-sm text-muted-foreground transition-colors duration-300 group-hover:text-navy">{t(s.label)}</div>
               </div>
             ))}
           </div>
@@ -42,7 +42,7 @@ function About() {
       <section className="bg-offwhite py-24">
         <div className="container-x grid gap-8 md:grid-cols-3">
           {blocks.map((b, i) => (
-            <div key={i} className="border-t-2 border-gold bg-card p-8 shadow-card">
+            <div key={i} className="card-hover-luxury group border-t-2 border-gold bg-card p-8 shadow-card">
               <h3 className="text-2xl font-bold text-navy">{t(b.h)}</h3>
               <p className="mt-4 text-muted-foreground">{t(b.p)}</p>
             </div>

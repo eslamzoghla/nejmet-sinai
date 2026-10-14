@@ -26,7 +26,11 @@ function Projects() {
     [q, cat],
   );
   const chip = (active: boolean) =>
-    `h-10 px-4 text-sm font-semibold border transition-colors ${active ? "bg-navy text-on-dark border-navy" : "border-border text-navy hover:border-gold"}`;
+    `h-10 px-5 text-sm font-semibold border transition-all duration-300 rounded-sm cursor-pointer ${
+      active
+        ? "bg-navy text-gold border-gold shadow-md scale-105 font-bold"
+        : "border-border text-navy hover:border-gold hover:text-gold hover:bg-offwhite"
+    }`;
 
   return (
     <>
@@ -42,8 +46,8 @@ function Projects() {
             </div>
             <label className="relative block lg:w-72">
               <span className="sr-only">{t(ui.search)}</span>
-              <Search className="absolute start-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-              <input value={q} onChange={(e) => setQ(e.target.value)} placeholder={t(ui.search)} className="h-10 w-full border border-input bg-background ps-10 pe-3 text-sm outline-none focus:border-gold" />
+              <Search className="absolute start-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground transition-colors group-focus-within:text-gold" />
+              <input value={q} onChange={(e) => setQ(e.target.value)} placeholder={t(ui.search)} className="h-10 w-full border border-input bg-background ps-10 pe-3 text-sm outline-none transition-all duration-300 focus:border-gold focus:ring-2 focus:ring-gold/25 rounded-sm" />
             </label>
           </div>
           {list.length ? (

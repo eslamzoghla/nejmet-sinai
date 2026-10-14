@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { Mail, MapPin } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 import { COMPANY_EMAIL, nav, ui } from "@/lib/content";
-import logo from "@/assets/logo-full.jpg";
+import logo from "@/assets/Logo.jpeg";
 
 export function Footer() {
   const { t } = useI18n();
@@ -13,11 +13,11 @@ export function Footer() {
           <img src={logo} alt={t(ui.companyName)} className="h-56 w-auto rounded-sm" loading="lazy" width={1434} height={1920} />
         </div>
         <div>
-          <h3 className="mb-5 font-bold text-on-dark">{t({ ar: "روابط", en: "Links" })}</h3>
+          <h3 className="mb-5 font-bold text-on-dark">{t({ ar: "روابط سريعة", en: "Quick Links" })}</h3>
           <ul className="grid grid-cols-2 gap-3 text-sm">
             {[...nav, { to: "/contact", label: ui.contact }, { to: "/privacy", label: ui.privacy }].map((n) => (
               <li key={n.to}>
-                <Link to={n.to} className="hover:text-gold">{t(n.label)}</Link>
+                <Link to={n.to} className="transition-all duration-300 hover:text-gold hover:translate-x-1 rtl:hover:-translate-x-1 inline-block">{t(n.label)}</Link>
               </li>
             ))}
           </ul>
@@ -27,11 +27,33 @@ export function Footer() {
           <ul className="space-y-4 text-sm">
             <li className="flex items-start gap-3">
               <Mail className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
-              <a href={`mailto:${COMPANY_EMAIL}`} dir="ltr" className="hover:text-gold">{COMPANY_EMAIL}</a>
+              <a href={`mailto:${COMPANY_EMAIL}`} dir="ltr" className="transition-colors duration-300 hover:text-gold">{COMPANY_EMAIL}</a>
             </li>
             <li className="flex items-start gap-3">
-              <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
-              <span>{t({ ar: "المقر الرئيسي: جمهورية مصر العربية — فروع في القاهرة والمملكة العربية السعودية", en: "HQ: Egypt — offices in Cairo and the Kingdom of Saudi Arabia" })}</span>
+              <MapPin className="mt-1 h-4 w-4 shrink-0 text-gold" />
+              <div className="space-y-2.5 text-xs leading-relaxed">
+                <div>
+                  <span className="font-bold text-gold block uppercase tracking-wider">{t({ ar: "المقر الرئيسي:", en: "Headquarters:" })}</span>
+                  <span className="text-on-dark-muted font-medium">{t({ ar: "جنوب سيناء — جمهورية مصر العربية", en: "South Sinai — Egypt" })}</span>
+                </div>
+                <div>
+                  <span className="font-bold text-gold block uppercase tracking-wider mb-1">{t({ ar: "الفروع والمكاتب الإقليمية:", en: "Regional Offices & Branches:" })}</span>
+                  <div className="text-on-dark-muted space-y-1">
+                    <div className="flex items-center gap-2">
+                      <span className="h-1.5 w-1.5 rounded-full bg-gold shrink-0" />
+                      <span>{t({ ar: "جمهورية مصر العربية: فرع القاهرة", en: "Egypt: Cairo Office" })}</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="h-1.5 w-1.5 rounded-full bg-gold shrink-0" />
+                      <span>{t({ ar: "دولة الإمارات: مكتب دبي", en: "UAE: Dubai Office" })}</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="h-1.5 w-1.5 rounded-full bg-gold shrink-0" />
+                      <span>{t({ ar: "المملكة العربية السعودية", en: "Kingdom of Saudi Arabia" })}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </li>
           </ul>
         </div>

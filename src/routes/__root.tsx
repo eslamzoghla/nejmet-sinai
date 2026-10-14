@@ -14,7 +14,7 @@ import appCss from "../styles.css?url";
 import { I18nProvider, useI18n } from "../lib/i18n";
 import { Header } from "../components/site/Header";
 import { Footer } from "../components/site/Footer";
-import { reportLovableError } from "../lib/lovable-error-reporting";
+
 
 function NotFoundComponent() {
   return (
@@ -51,7 +51,7 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
   console.error(error);
   const router = useRouter();
   useEffect(() => {
-    reportLovableError(error, { boundary: "tanstack_root_error_component" });
+    console.error("[ErrorBoundary]", error);
   }, [error]);
 
   return (
@@ -91,7 +91,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Najmat Sinai Construction & Contracting | نجمة سيناء للمقاولات العامة" },
-      { name: "description", content: "General contracting, roads and infrastructure company in Egypt and Saudi Arabia." },
+      { name: "description", content: "General contracting, roads and infrastructure company in Egypt, Saudi Arabia and UAE." },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "Najmat Sinai" },
       { name: "twitter:card", content: "summary_large_image" },
